@@ -11,7 +11,7 @@ Rectangle {
         id: buttonNoToast
         width: 150
         height: 50
-        text: qsTr("Return")
+        text: qsTr("No Toast")
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 62
         anchors.verticalCenterOffset: 171
@@ -28,8 +28,13 @@ Rectangle {
         id: buttonNormal
         width: 75
         height: 25
-        text: qsTr("Button")
+        text: qsTr("Normaly Toasted")
         anchors.centerIn: parent
+        onClicked:
+        {
+            //in the future add a variable to carry along to dicate cook time for ToastingScreen
+            myStackView.push("ToastingScreen.qml")
+        }
 
     }
 
@@ -37,23 +42,32 @@ Rectangle {
         id: buttonLightly
         width: 75
         height: 25
-        text: qsTr("Button")
+        text: qsTr("Lightly Toasted")
         anchors.verticalCenter: buttonNormal.verticalCenter
         anchors.right: buttonNormal.left
         anchors.rightMargin: 100
-
         anchors.verticalCenterOffset: 0
+        onClicked:
+        {
+            //in the future add a variable to carry along to dicate cook time for ToastingScreen
+            myStackView.push("ToastingScreen.qml")
+        }
     }
 
     Button {
         id: buttonToasty
         width: 75
         height: 25
-        text: qsTr("Button")
+        text: qsTr("Heavily Toasted")
         anchors.verticalCenter: buttonNormal.verticalCenter
         anchors.left: buttonNormal.right
         anchors.leftMargin: 100
         anchors.verticalCenterOffset: 0
+        onClicked:
+        {
+            //in the future add a variable to carry along to dicate cook time for ToastingScreen
+            myStackView.push("ToastingScreen.qml")
+        }
     }
 
 
