@@ -6,7 +6,7 @@ ApplicationWindow {
     visible: true
     width: 400
     height: 600
-    title: "Coffee Machine"
+    title: "Bagel Toaster"
 
     // StackView for navigation
     StackView {

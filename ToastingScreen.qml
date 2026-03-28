@@ -22,7 +22,7 @@ Rectangle {
                 timeLeft--
             } else {
                 toastTimer.stop()
-                stackView.push("qrc:/qt/qml/EagleHacks2026/Spread.qml", { stackView: stackView })
+                stackView.push("Spread.qml", { stackView: stackView })
             }
         }
     }
