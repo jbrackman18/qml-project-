@@ -4,20 +4,34 @@ import QtQuick.Layouts
 
 Rectangle {
     id: rectangle
-
+    visible: true
     color: "#272EF5"
+    // Creates a button with a plain bagel image
 
-    Button {
-        id: button
-        width: 61
-        height: 41
-        text: "Button"
-        icon.color: "#030303"
-        palette.buttonText: "Black"
+    Row{
         anchors.centerIn: parent
-        onClicked:
-        {
-            myStackView.push("ToastBagle.qml")
+        spacing: parent.width * .05
+        // Plain bagel button
+        Button {
+            id: plain
+            background: Image {
+                source: "images/bagel_PNG81.png"
+                fillMode: Image.PreserveAspectFit
+            }
+            width: parent.parent.width * .3
+            height: parent.parent.height * .4
+            onClicked: myStackView.push("ToastBagle.qml")
+        }
+        // Creates an button with a image of an everything bagel
+        Button {
+            id: everything
+            background: Image {
+                source: "images/download.png"
+                fillMode: Image.PreserveAspectFit
+            }
+            width: parent.parent.width * .3
+            height: parent.parent.height * .4
+            onClicked: myStackView.push("ToastBagle.qml")
         }
     }
 }
