@@ -3,18 +3,25 @@ import QtQuick.Controls 2.15
 import QtQuick.Layouts
 
 Rectangle {
-    anchors.fill: parent  // Fill the entire StackView/screen
-    color: "#272EF5"  // Your background color (optional)
+    id: rectangle
+    visible: true
 
-    Row {
+    Image {
+        id: background_image
+        anchors.fill: parent
+        source: "images/bagelback"
+        fillMode: Image.Stretch
+    }
+    // Creates a button with a plain bagel image
+
+    Row{
         anchors.centerIn: parent
-        spacing: parent.width * 0.05  // 5% of screen width
-
+        spacing: parent.width * .05
         // Plain bagel button
         Button {
             id: plain
             background: Image {
-                source: "images/bagel.png"
+                source: "images/plainbagel.png"
                 fillMode: Image.PreserveAspectFit
             }
             width: parent.parent.width * 0.3   // 30% of screen width
@@ -26,7 +33,7 @@ Rectangle {
         Button {
             id: everything
             background: Image {
-                source: "images/bagel1.png"
+                source: "images/eBagel.png"
                 fillMode: Image.PreserveAspectFit
             }
             width: parent.parent.width * 0.3
