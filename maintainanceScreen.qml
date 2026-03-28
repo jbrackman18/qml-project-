@@ -20,11 +20,13 @@ Rectangle {
         id: buttonMaintenance1
         width: 75
         height: 25
-        text: qsTr("Settings 1")
+        text: qsTr("Temperature")
         anchors.verticalCenter: buttonMaintenance2.verticalCenter
         anchors.right: buttonMaintenance2.left
         anchors.rightMargin: 20
-        onClicked: selectedMaintenance = "Settings 1"
+        onClicked:{
+            myStackView.push("mscreen1.qml")
+        }
     }
     Button {
         id: buttonMaintenance2
