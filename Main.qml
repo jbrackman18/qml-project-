@@ -7,6 +7,7 @@ ApplicationWindow {
     width: screen.width
     height: screen.height
     title: "Bagel Machine"
+    //visibility: Window.FullScreen
 
     // StackView for navigation
     StackView {
