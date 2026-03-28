@@ -2,20 +2,24 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts
 
-    Rectangle {
-        id: rectangle
-        color: "#272EF5"
-        anchors.fill: parent
+Rectangle {
+    width: 200; height: 100
+    color: "#222"
+    radius: 10
 
-    Button {
-        id: buttonBack
-        width: 60
-        height: 30
-        text: qsTr("< Back")
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.topMargin: 10
-        anchors.leftMargin: 10
-        onClicked: myStackView.pop()
-}
+    Column {
+        anchors.centerIn: parent
+
+        Text {
+            text: sensorData.temperature.toFixed(1) + "°C"
+            color: "orange"
+            font.pixelSize: 28
+        }
+
+        Text {
+            text: sensorData.humidity.toFixed(1) + "%"
+            color: "lightblue"
+            font.pixelSize: 20
+        }
+    }
 }
