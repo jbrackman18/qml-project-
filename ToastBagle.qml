@@ -1,6 +1,9 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
+<<<<<<< HEAD
 
+=======
+>>>>>>> cac1ecd4c457752d6ce67a4969f7c5addd66c363
 import QtQuick.Layouts
 
 
@@ -104,7 +107,10 @@ Rectangle {
             })
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> cac1ecd4c457752d6ce67a4969f7c5addd66c363
     Button {
         id: buttonBack
         width: 60

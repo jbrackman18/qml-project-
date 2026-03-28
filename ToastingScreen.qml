@@ -24,7 +24,11 @@ Rectangle {
                 timeLeft--
             } else {
                 toastTimer.stop()
+<<<<<<< HEAD
                 myStackView.push("Spread.qml", { stackView: stackView })
+=======
+                stackView.push("Spread.qml", { stackView: stackView })
+>>>>>>> cac1ecd4c457752d6ce67a4969f7c5addd66c363
             }
         }
     }

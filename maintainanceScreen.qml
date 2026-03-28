@@ -20,11 +20,13 @@ Rectangle {
         id: buttonMaintenance1
         width: 75
         height: 25
-        text: qsTr("Settings 1")
+        text: qsTr("Temperature")
         anchors.verticalCenter: buttonMaintenance2.verticalCenter
         anchors.right: buttonMaintenance2.left
         anchors.rightMargin: 20
-        onClicked: selectedMaintenance = "Settings 1"
+        onClicked:{
+            myStackView.push("mscreen1.qml")
+        }
     }
     Button {
         id: buttonMaintenance2
@@ -32,8 +34,10 @@ Rectangle {
         height: 25
         text: qsTr("Settings 2")
         anchors.centerIn: parent
-        onClicked: selectedSpread = "Settings 2"
+        onClicked:{
+            myStackView.push("mscreen2.qml")
         }
+    }
     Button {
         id: buttonMaintenance3
         width: 75
@@ -42,7 +46,9 @@ Rectangle {
         anchors.verticalCenter: buttonMaintenance2.verticalCenter
         anchors.left: buttonMaintenance2.right
         anchors.leftMargin: 20
-        onClicked: selectedSpread = "Settings 3"        
+        onClicked:{
+            myStackView.push("mscreen3.qml")
+        }
     }
     Button {
         id: buttonBack

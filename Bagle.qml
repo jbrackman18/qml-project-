@@ -20,7 +20,10 @@ Rectangle {
             myStackView.push("ToastBagle.qml")
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> cac1ecd4c457752d6ce67a4969f7c5addd66c363
     Button {
         id: buttonTopRight
         width: 60
@@ -38,5 +41,8 @@ Rectangle {
             myStackView.push("maintainanceScreen.qml")
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> cac1ecd4c457752d6ce67a4969f7c5addd66c363
 }
