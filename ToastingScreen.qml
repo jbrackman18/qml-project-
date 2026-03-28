@@ -65,6 +65,5 @@ Rectangle {
                 toastTimer.stop()
                 stackView.pop()
             }
-        }
     }
 }
