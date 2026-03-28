@@ -6,7 +6,11 @@ ApplicationWindow {
     visible: true
     width: 400
     height: 600
+<<<<<<< HEAD
     title: "Bagle Toaster"
+=======
+    title: "Coffee Machine"
+>>>>>>> toasterscreenfunc
 
     // StackView for navigation
     StackView {
