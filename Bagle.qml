@@ -21,7 +21,7 @@ Rectangle {
         Button {
             id: plain
             background: Image {
-                source: "images/plainbagel.png"
+                source: "images/plainBagel.png"
                 fillMode: Image.PreserveAspectFit
             }
             width: parent.parent.width * 0.3   // 30% of screen width
