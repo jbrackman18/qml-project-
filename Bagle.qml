@@ -4,19 +4,36 @@ import QtQuick.Layouts
 
 Rectangle {
     id: rectangle
+    anchors.fill: parent
     visible: true
 
     Image {
-        id: background_image
+        id: backgroundImage
         anchors.fill: parent
-        source: "images/bagelback"
+        source: "images/bagelback.png"
         fillMode: Image.Stretch
     }
-    // Creates a button with a plain bagel image
 
-    Row{
+    // Maintenance button (top right)
+    Button {
+        id: buttonTopRight
+        width: 60
+        height: 30
+        text: "Maintenance"
+        font.pixelSize: 8
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.topMargin: 10
+        anchors.rightMargin: 10
+        onClicked: {
+            myStackView.push("maintainanceScreen.qml")
+        }
+    }
+
+    Row {
         anchors.centerIn: parent
-        spacing: parent.width * .05
+        spacing: parent.width * 0.05
+
         // Plain bagel button
         Button {
             id: plain
@@ -24,9 +41,11 @@ Rectangle {
                 source: "images/plainBagel.png"
                 fillMode: Image.PreserveAspectFit
             }
-            width: parent.parent.width * 0.3   // 30% of screen width
-            height: parent.parent.height * 0.4  // 40% of screen height
-            onClicked: myStackView.push("ToastBagle.qml")
+            width: parent.parent.width * 0.3
+            height: parent.parent.height * 0.4
+            onClicked: {
+                myStackView.push("ToastBagle.qml")
+            }
         }
 
         // Everything bagel button
@@ -38,7 +57,9 @@ Rectangle {
             }
             width: parent.parent.width * 0.3
             height: parent.parent.height * 0.4
-            onClicked: myStackView.push("ToastBagle.qml")
+            onClicked: {
+                myStackView.push("ToastBagle.qml")
+            }
         }
     }
 }

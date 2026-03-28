@@ -4,23 +4,47 @@ import QtQuick.Layouts
 
 Rectangle {
     id: rectangle
+    anchors.fill: parent
     color: "#d61515"
 
+    property string selectedDuration: "NONE"
+    property int toastSeconds: 0
+    property var stackView
 
+    Component.onCompleted: {
+        if (!stackView) stackView = StackView.view
+    }
+
+    Text {
+        text: "Select Toast Level"
+        color: "white"
+        font.pixelSize: 22
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: parent.top
+        anchors.topMargin: 40
+    }
+
+    Text {
+        text: "Selected: " + selectedDuration
+        color: "white"
+        font.pixelSize: 16
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: parent.top
+        anchors.topMargin: 80
+    }
+
+    // Toast level selection row
     Button {
-        id: buttonNoToast
-        width: 150
-        height: 50
-        text: qsTr("Return")
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 62
-        anchors.verticalCenterOffset: 171
-        anchors.horizontalCenterOffset: 0
-        anchors.centerIn: parent
-
-        onClicked:
-        {
-            myStackView.push("Spread.qml")
+        id: buttonLightly
+        width: 75
+        height: 25
+        text: "15 SECONDS"
+        anchors.verticalCenter: buttonNormal.verticalCenter
+        anchors.right: buttonNormal.left
+        anchors.rightMargin: 20
+        onClicked: {
+            selectedDuration = "LIGHT"
+            toastSeconds = 15
         }
     }
 
@@ -28,34 +52,57 @@ Rectangle {
         id: buttonNormal
         width: 75
         height: 25
-        text: qsTr("Button")
+        text: "30 SECONDS"
         anchors.centerIn: parent
-
-    }
-
-    Button {
-        id: buttonLightly
-        width: 75
-        height: 25
-        text: qsTr("Button")
-        anchors.verticalCenter: buttonNormal.verticalCenter
-        anchors.right: buttonNormal.left
-        anchors.rightMargin: 100
-
-        anchors.verticalCenterOffset: 0
+        onClicked: {
+            selectedDuration = "NORMAL"
+            toastSeconds = 30
+        }
     }
 
     Button {
         id: buttonToasty
         width: 75
         height: 25
-        text: qsTr("Button")
+        text: "45 SECONDS"
         anchors.verticalCenter: buttonNormal.verticalCenter
         anchors.left: buttonNormal.right
-        anchors.leftMargin: 100
-        anchors.verticalCenterOffset: 0
+        anchors.leftMargin: 20
+        onClicked: {
+            selectedDuration = "TOASTY"
+            toastSeconds = 45
+        }
     }
 
+    // No toast button
+    Button {
+        id: buttonNoToast
+        width: 150
+        height: 50
+        text: "NO TOAST"
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 100
+        onClicked: {
+            stackView.push("Spread.qml")
+        }
+    }
 
-
+    // Start toasting button
+    Button {
+        id: buttonNext
+        width: 150
+        height: 50
+        text: "Start Toasting"
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 40
+        enabled: toastSeconds > 0
+        onClicked: {
+            stackView.push("ToastingScreen.qml", {
+                toastSeconds: toastSeconds,
+                stackView: stackView
+            })
+        }
+    }
 }
