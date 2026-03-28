@@ -8,11 +8,7 @@ Rectangle {
     anchors.fill: parent
 
     property string selectedMaintenance: ""
-    property var stackView
 
-    Component.onCompleted: {
-        if (!stackView) stackView = StackView.view
-    }
 
     Text {
         text: "Maintenance"
@@ -49,5 +45,16 @@ Rectangle {
         anchors.left: buttonMaintenance2.right
         anchors.leftMargin: 20
         onClicked: selectedMaintenance = "Settings 3"
+    }
+    Button {
+        id: buttonBack
+        width: 60
+        height: 30
+        text: qsTr("< Back")
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.topMargin: 10
+        anchors.leftMargin: 10
+        onClicked: myStackView.pop()
     }
 }

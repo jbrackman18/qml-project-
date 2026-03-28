@@ -105,4 +105,15 @@ Rectangle {
             })
         }
     }
+    Button {
+        id: buttonBack
+        width: 60
+        height: 30
+        text: qsTr("< Back")
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.topMargin: 10
+        anchors.leftMargin: 10
+        onClicked: stackView.pop()
+    }
 }
