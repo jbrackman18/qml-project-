@@ -6,7 +6,6 @@ Rectangle {
     id: rectangle
     color: "#d61515"
 
-
     Button {
         id: buttonNoToast
         width: 150
@@ -67,9 +66,8 @@ Rectangle {
         {
             //in the future add a variable to carry along to dicate cook time for ToastingScreen
             myStackView.push("ToastingScreen.qml")
-        }
     }
 
-
+}
 
 }
