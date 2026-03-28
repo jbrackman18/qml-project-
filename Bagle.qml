@@ -11,11 +11,7 @@ Rectangle {
         id: button
         width: 61
         height: 41
-<<<<<<< HEAD
-        text: "Button"
-=======
         text: "Start"
->>>>>>> toasterscreenfunc
         icon.color: "#030303"
         palette.buttonText: "Black"
         anchors.centerIn: parent

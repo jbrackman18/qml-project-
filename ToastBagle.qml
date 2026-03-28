@@ -1,30 +1,12 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
-<<<<<<< HEAD
 import QtQuick.Layouts
-=======
->>>>>>> toasterscreenfunc
+
+
 
 Rectangle {
     id: rectangle
     color: "#d61515"
-<<<<<<< HEAD
-
-    Button {
-        id: buttonNoToast
-        width: 150
-        height: 50
-        text: qsTr("No Toast")
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 62
-        anchors.verticalCenterOffset: 171
-        anchors.horizontalCenterOffset: 0
-        anchors.centerIn: parent
-
-        onClicked:
-        {
-            myStackView.push("Spread.qml")
-=======
     anchors.fill: parent
 
     property string selectedDuration: "NONE"
@@ -64,7 +46,6 @@ Rectangle {
         onClicked: {
             selectedDuration = "LIGHT"
             toastSeconds = 15
->>>>>>> toasterscreenfunc
         }
     }
 
@@ -72,37 +53,11 @@ Rectangle {
         id: buttonNormal
         width: 75
         height: 25
-<<<<<<< HEAD
-        text: qsTr("Normaly Toasted")
-        anchors.centerIn: parent
-        onClicked:
-        {
-            //in the future add a variable to carry along to dicate cook time for ToastingScreen
-            myStackView.push("ToastingScreen.qml")
-        }
-
-    }
-
-    Button {
-        id: buttonLightly
-        width: 75
-        height: 25
-        text: qsTr("Lightly Toasted")
-        anchors.verticalCenter: buttonNormal.verticalCenter
-        anchors.right: buttonNormal.left
-        anchors.rightMargin: 100
-        anchors.verticalCenterOffset: 0
-        onClicked:
-        {
-            //in the future add a variable to carry along to dicate cook time for ToastingScreen
-            myStackView.push("ToastingScreen.qml")
-=======
         text: qsTr("30 SECONDS")
         anchors.centerIn: parent
         onClicked: {
             selectedDuration = "NORMAL"
             toastSeconds = 30
->>>>>>> toasterscreenfunc
         }
     }
 
@@ -110,22 +65,6 @@ Rectangle {
         id: buttonToasty
         width: 75
         height: 25
-<<<<<<< HEAD
-        text: qsTr("Heavily Toasted")
-        anchors.verticalCenter: buttonNormal.verticalCenter
-        anchors.left: buttonNormal.right
-        anchors.leftMargin: 100
-        anchors.verticalCenterOffset: 0
-        onClicked:
-        {
-            //in the future add a variable to carry along to dicate cook time for ToastingScreen
-            myStackView.push("ToastingScreen.qml")
-    }
-
-}
-
-}
-=======
         text: qsTr("45 SECONDS")
         anchors.verticalCenter: buttonNormal.verticalCenter
         anchors.left: buttonNormal.right
@@ -166,4 +105,3 @@ Rectangle {
         }
     }
 }
->>>>>>> toasterscreenfunc
