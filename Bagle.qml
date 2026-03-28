@@ -5,7 +5,13 @@ import QtQuick.Layouts
 Rectangle {
     id: rectangle
     visible: true
-    color: "#272EF5"
+
+    Image {
+        id: background_image
+        anchors.fill: parent
+        source: "images/bagelback"
+        fillMode: Image.Stretch
+    }
     // Creates a button with a plain bagel image
 
     Row{

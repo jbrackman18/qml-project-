@@ -22,6 +22,7 @@ qt_add_qml_module(appEagleHacks2026
         QML_FILES ToastingScreen.qml
         RESOURCES images/download.png
         RESOURCES images/bagel_PNG81.png
+        RESOURCES images/bagelback.png
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
