@@ -4,10 +4,8 @@ import QtQuick.Controls 2.15
 Rectangle {
     id: rectangle
     color: "#d61515"
-<<<<<<< HEAD
     anchors.fill: parent
-=======
->>>>>>> 1beda2ad07af186c9902f50b372b0e844a5bd6a8
+
 
     property string selectedSpread: ""
     property var stackView
@@ -94,8 +92,5 @@ Rectangle {
             })
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 1beda2ad07af186c9902f50b372b0e844a5bd6a8
+
