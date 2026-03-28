@@ -6,11 +6,7 @@ ApplicationWindow {
     visible: true
     width: screen.width
     height: screen.height
-<<<<<<< HEAD
-    title: "Coffee Machine"
-=======
     title: "Bagel Machine"
->>>>>>> jeff
 
     // StackView for navigation
     StackView {
