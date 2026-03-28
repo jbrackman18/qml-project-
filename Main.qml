@@ -4,8 +4,8 @@ import QtQuick.Layouts
 
 ApplicationWindow {
     visible: true
-    width: 400
-    height: 600
+    width: screen.width
+    height: screen.height
     title: "Coffee Machine"
 
     // StackView for navigation
