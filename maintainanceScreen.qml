@@ -8,12 +8,6 @@ Rectangle {
     anchors.fill: parent
 
     property string selectedMaintenance: ""
-    property var stackView
-
-    Component.onCompleted: {
-        if (!stackView) stackView = StackView.view
-    }
-
     Text {
         text: "Maintenance"
         color: "white"
@@ -38,7 +32,7 @@ Rectangle {
         height: 25
         text: qsTr("Settings 2")
         anchors.centerIn: parent
-        onClicked: selectedMaintenance = "Settings 2"
+        onClicked: selectedSpread = "Settings 2"
         }
     Button {
         id: buttonMaintenance3
@@ -48,7 +42,7 @@ Rectangle {
         anchors.verticalCenter: buttonMaintenance2.verticalCenter
         anchors.left: buttonMaintenance2.right
         anchors.leftMargin: 20
-        onClicked: selectedMaintenance = "Settings 3"
+        onClicked: selectedSpread = "Settings 3"        
     }
     Button {
         id: buttonBack

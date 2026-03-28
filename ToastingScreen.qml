@@ -1,5 +1,10 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
+<<<<<<< HEAD
+=======
+import QtQuick.Layouts 2.15
+
+>>>>>>> 1beda2ad07af186c9902f50b372b0e844a5bd6a8
 Rectangle {
     color: "#b01010"
     anchors.fill: parent
@@ -22,7 +27,11 @@ Rectangle {
                 timeLeft--
             } else {
                 toastTimer.stop()
+<<<<<<< HEAD
                 stackView.push("Spread.qml", { stackView: stackView })
+=======
+                myStackView.push("Spread.qml", { stackView: stackView })
+>>>>>>> 1beda2ad07af186c9902f50b372b0e844a5bd6a8
             }
         }
     }
@@ -57,4 +66,9 @@ Rectangle {
             }
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+
+>>>>>>> 1beda2ad07af186c9902f50b372b0e844a5bd6a8

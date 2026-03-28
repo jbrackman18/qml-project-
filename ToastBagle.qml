@@ -1,5 +1,11 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
+<<<<<<< HEAD
+=======
+import QtQuick.Layouts
+
+
+>>>>>>> 1beda2ad07af186c9902f50b372b0e844a5bd6a8
 
 Rectangle {
     id: rectangle
@@ -101,6 +107,7 @@ Rectangle {
             })
         }
     }
+<<<<<<< HEAD
     Button {
         id: buttonBack
         width: 60
@@ -112,4 +119,6 @@ Rectangle {
         anchors.leftMargin: 10
         onClicked: stackView.pop()
     }
+=======
+>>>>>>> 1beda2ad07af186c9902f50b372b0e844a5bd6a8
 }
