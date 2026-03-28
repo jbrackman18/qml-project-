@@ -20,8 +20,8 @@ qt_add_qml_module(appEagleHacks2026
         QML_FILES Spread.qml
         QML_FILES ToastBagle.qml
         QML_FILES ToastingScreen.qml
-        RESOURCES images/bagel.png
-        RESOURCES images/bagel1.png
+        RESOURCES images/plainBagel.png
+        RESOURCES images/eBagel.png
         RESOURCES images/bagelback.png
 
 )
