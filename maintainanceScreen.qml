@@ -34,8 +34,10 @@ Rectangle {
         height: 25
         text: qsTr("Settings 2")
         anchors.centerIn: parent
-        onClicked: selectedSpread = "Settings 2"
+        onClicked:{
+            myStackView.push("mscreen2.qml")
         }
+    }
     Button {
         id: buttonMaintenance3
         width: 75
@@ -44,7 +46,9 @@ Rectangle {
         anchors.verticalCenter: buttonMaintenance2.verticalCenter
         anchors.left: buttonMaintenance2.right
         anchors.leftMargin: 20
-        onClicked: selectedSpread = "Settings 3"        
+        onClicked:{
+            myStackView.push("mscreen3.qml")
+        }
     }
     Button {
         id: buttonBack
