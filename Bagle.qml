@@ -25,6 +25,7 @@ Rectangle {
         width: 60
         height: 30
         text: qsTr("Maintenance")
+        font.pixelSize: 8
         icon.color: "#030303"
         palette.buttonText: "Black"
         anchors.top: parent.top
