@@ -59,6 +59,6 @@ Rectangle {
         anchors.left: parent.left
         anchors.topMargin: 10
         anchors.leftMargin: 10
-        onClicked: myStackView.pop()
+        onClicked: myStackView.pop(null)
     }
 }

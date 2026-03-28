@@ -34,7 +34,7 @@ Rectangle {
         anchors.rightMargin: 10
         onClicked:
         {
-            myStackView.push("maintainanceScreen.qml")
+            myStackView.push("lockscreen.qml")
         }
     }
 }

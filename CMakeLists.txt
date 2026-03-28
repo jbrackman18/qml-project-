@@ -25,6 +25,7 @@ qt_add_qml_module(appEagleHacks2026
         QML_FILES mscreen1.qml
         QML_FILES mscreen2.qml
         QML_FILES mscreen3.qml
+        QML_FILES lockscreen.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
