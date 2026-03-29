@@ -13,7 +13,13 @@ Rectangle {
     Component.onCompleted: {
         if (!stackView) stackView = StackView.view
     }
-
+    Image {
+        id: background
+        source: "https://i.imgur.com/nzIaNX4.png"
+        anchors.fill: parent
+        fillMode: Image.PreserveAspectCrop
+        opacity: 0.4
+    }
     Text {
         text: "Select Toast Level"
         color: "white"

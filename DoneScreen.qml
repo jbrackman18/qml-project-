@@ -12,16 +12,14 @@ Rectangle {
         popAnimation.start()
     }
 
-    // animated background gradient
-    Rectangle {
+    Image {
+        id: background
+        source: "https://i.imgur.com/nzIaNX4.png"
         anchors.fill: parent
-        gradient: Gradient {
-            GradientStop { position: 0.0; color: "#3d0000" }
-            GradientStop { position: 1.0; color: "#1a1a1a" }
-        }
+        fillMode: Image.PreserveAspectCrop
+        opacity: 0.3
     }
 
-    // bagel emoji big and bouncy
     Text {
         id: bagelEmoji
         text: "🥯"
@@ -42,7 +40,6 @@ Rectangle {
         }
     }
 
-    // pulse glow behind bagel
     Rectangle {
         width: 120
         height: 120
@@ -101,7 +98,11 @@ Rectangle {
             width: 200
             height: 50
             anchors.horizontalCenter: parent.horizontalCenter
-            onClicked: stackView.pop(null)
+            onClicked: {
+                if (myStackView) {
+                    myStackView.pop(null)
+                }
+            }
 
             contentItem: Text {
                 text: "Back to Home"
