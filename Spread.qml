@@ -8,6 +8,13 @@ Rectangle {
     property string selectedSpread: ""
     property var stackView
 
+    Image {
+        id: background
+        source: "images/picnicbackground.png"
+        anchors.fill: parent
+        fillMode: Image.PreserveAspectCrop
+    }
+
     Component.onCompleted: {
         if (!stackView) stackView = StackView.view
     }
@@ -61,7 +68,7 @@ Rectangle {
         onClicked: selectedSpread = "Jam"
     }
 
-    Button {
+    RoundButton {
         id: buttonNoSpread
         width: 150
         height: 50
@@ -74,7 +81,7 @@ Rectangle {
         }
     }
 
-    Button {
+    RoundButton {
         id: buttonNext
         width: 150
         height: 50
