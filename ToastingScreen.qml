@@ -3,8 +3,16 @@ import QtQuick.Controls 2.15
 import QtQuick.Layouts 2.15
 
 Rectangle {
-    color: "#b01010"
     anchors.fill: parent
+
+    Image {
+        id: background
+        source: "images/Picnic.png"
+        anchors.fill: parent
+        fillMode: Image.PreserveAspectCrop
+        opacity: 1
+    }
+
     property int toastSeconds: 30
     property int timeLeft: 0
     property var stackView
@@ -32,21 +40,33 @@ Rectangle {
 
     Column {
         anchors.centerIn: parent
-        spacing: 30
+        spacing: 35
 
         Text {
             text: "Toasting Bagel..."
-            color: "white"
-            font.pixelSize: 26
+            color: "White"
+            font.pixelSize: 28
             font.bold: true
+            opacity: 1
             anchors.horizontalCenter: parent.horizontalCenter
         }
 
-        // circular timer
+        
         Item {
-            width: 180
-            height: 180
+            width: 200
+            height: 200
             anchors.horizontalCenter: parent.horizontalCenter
+
+            
+            Rectangle {
+                anchors.centerIn: parent
+                width: 180
+                height: 180
+                radius: 90
+                color: "#22ffffff"
+                opacity: 0.2
+                scale: 1.1
+            }
 
             // background circle
             Canvas {
@@ -56,8 +76,8 @@ Rectangle {
                     var ctx = getContext("2d")
                     ctx.clearRect(0, 0, width, height)
                     ctx.beginPath()
-                    ctx.arc(width / 2, height / 2, 80, 0, Math.PI * 2)
-                    ctx.strokeStyle = "#44ffffff"
+                    ctx.arc(width / 2, height / 2, 85, 0, Math.PI * 2)
+                    ctx.strokeStyle = "#33ffffff"
                     ctx.lineWidth = 10
                     ctx.stroke()
                 }
@@ -72,27 +92,34 @@ Rectangle {
                     ctx.clearRect(0, 0, width, height)
                     var progress = toastSeconds > 0 ? timeLeft / toastSeconds : 0
                     ctx.beginPath()
-                    ctx.arc(width / 2, height / 2, 80,
+                    ctx.arc(width / 2, height / 2, 85,
                             -Math.PI / 2,
                             -Math.PI / 2 + progress * Math.PI * 2)
-                    ctx.strokeStyle = "#ffdd44"
-                    ctx.lineWidth = 10
+
+            
+                    var grad = ctx.createLinearGradient(0, 0, width, height)
+                    grad.addColorStop(0, "#ffdd44")
+                    grad.addColorStop(1, "#ff8800")
+
+                    ctx.strokeStyle = grad
+                    ctx.lineWidth = 12
                     ctx.lineCap = "round"
+                    ctx.shadowColor = "#ffaa00"
+                    ctx.shadowBlur = 10
                     ctx.stroke()
                 }
             }
 
-            // time text in center
+            // time text
             Text {
                 text: timeLeft + "s"
                 color: "#ffdd44"
-                font.pixelSize: 48
+                font.pixelSize: 50
                 font.bold: true
                 anchors.centerIn: parent
             }
         }
 
-        // update arc every second
         Connections {
             target: toastTimer
             function onTriggered() {
@@ -102,26 +129,43 @@ Rectangle {
 
         Button {
             id: cancelButton
-            width: 140
-            height: 45
+            width: 150
+            height: 50
             anchors.horizontalCenter: parent.horizontalCenter
+
             onClicked: {
                 toastTimer.stop()
                 stackView.pop()
             }
+
             contentItem: Text {
                 text: "Cancel"
                 color: "white"
-                font.pixelSize: 14
+                font.pixelSize: 15
                 font.bold: true
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
             }
+
+            
             background: Rectangle {
-                color: cancelButton.pressed ? "#44ffffff" : "transparent"
-                border.color: "white"
-                border.width: 2
-                radius: 10
+                radius: 12
+
+                gradient: Gradient {
+                    GradientStop { position: 0; color: cancelButton.pressed ? "#aa2222" : "#dd3333" }
+                    GradientStop { position: 1; color: cancelButton.pressed ? "#771111" : "#aa2222" }
+                }
+
+                border.color: "#ffffff44"
+                border.width: 1
+
+                // subtle glow
+                Rectangle {
+                    anchors.fill: parent
+                    radius: 12
+                    color: "#ffffff"
+                    opacity: cancelButton.pressed ? 0.05 : 0.12
+                }
             }
         }
     }
