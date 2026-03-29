@@ -1,5 +1,6 @@
 #include "sht45sensor.h"
 #include <QDebug>
+#include <QThread>
 
 Q_LOGGING_CATEGORY(sensorLog, "sht45.sensor")
 
@@ -48,10 +49,26 @@ void SHT45Sensor::tryConnect()
     m_port->setFlowControl(QSerialPort::NoFlowControl);
 
     if (m_port->open(QIODevice::ReadWrite)) {
+
         qCInfo(sensorLog) << "Connected to" << portName;
+
         m_buffer.clear();
         m_reconnectTimer->stop();
         setConnected(true);
+
+        // 🔥 THIS is what you're missing
+        m_port->setDataTerminalReady(false);
+        m_port->setRequestToSend(false);
+        QThread::msleep(100);
+        m_port->setDataTerminalReady(true);
+        m_port->setRequestToSend(true);
+
+        // Give CircuitPython time to restart
+        QThread::msleep(800);
+
+        // Wake it up (like Arduino Serial Monitor does)
+        m_port->write("\r\n");
+        m_port->flush();
     } else {
         qCWarning(sensorLog) << "Failed to open" << portName << ":" << m_port->errorString();
         m_reconnectTimer->start();
@@ -100,23 +117,24 @@ QString SHT45Sensor::detectPort() const
 
 void SHT45Sensor::onReadyRead()
 {
-    m_buffer += m_port->readAll();
+    QByteArray data = m_port->readAll();
+    qCInfo(sensorLog) << "RAW DATA:" << data;   // <-- ADD THIS
+    m_buffer += data;
 
-    // Process complete lines
     while (m_buffer.contains('\n')) {
         int idx = m_buffer.indexOf('\n');
-        QByteArray lineBytes = m_buffer.left(idx);
+
+        QByteArray lineBytes = m_buffer.left(idx).trimmed(); // <-- FIX
         m_buffer = m_buffer.mid(idx + 1);
 
-        QString line = QString::fromUtf8(lineBytes).trimmed();
+        QString line = QString::fromUtf8(lineBytes);
         if (!line.isEmpty()) {
             qCDebug(sensorLog) << "Received:" << line;
             parseLine(line);
         }
     }
 
-    // Prevent buffer overflow - clear if too large
-    if (m_buffer.size() > 1024) {
+    if (m_buffer.size() > 2048) {
         qCWarning(sensorLog) << "Buffer overflow, clearing";
         m_buffer.clear();
     }
