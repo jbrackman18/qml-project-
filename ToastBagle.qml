@@ -6,12 +6,10 @@ import QtQuick.Controls 2.15
 >>>>>>> cac1ecd4c457752d6ce67a4969f7c5addd66c363
 import QtQuick.Layouts
 
-
 Rectangle {
     id: rectangle
     color: "#d61515"
     anchors.fill: parent
-
     property string selectedDuration: "NONE"
     property int toastSeconds: 0
     property var stackView
@@ -19,7 +17,13 @@ Rectangle {
     Component.onCompleted: {
         if (!stackView) stackView = StackView.view
     }
-
+    Image {
+        id: background
+        source: "https://i.imgur.com/nzIaNX4.png"
+        anchors.fill: parent
+        fillMode: Image.PreserveAspectCrop
+        opacity: 0.4
+    }
     Text {
         text: "Select Toast Level"
         color: "white"
@@ -40,9 +44,8 @@ Rectangle {
 
     Button {
         id: buttonLightly
-        width: 75
-        height: 25
-        text: qsTr("15 SECONDS")
+        width: 100
+        height: 35
         anchors.verticalCenter: buttonNormal.verticalCenter
         anchors.right: buttonNormal.left
         anchors.rightMargin: 20
@@ -50,25 +53,49 @@ Rectangle {
             selectedDuration = "LIGHT"
             toastSeconds = 15
         }
+        contentItem: Text {
+            text: "15 SECONDS"
+            color: "white"
+            font.pixelSize: 12
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+        }
+        background: Rectangle {
+            color: buttonLightly.pressed ? "#44ffffff" : "transparent"
+            border.color: "white"
+            border.width: 2
+            radius: 8
+        }
     }
 
     Button {
         id: buttonNormal
-        width: 75
-        height: 25
-        text: qsTr("30 SECONDS")
+        width: 100
+        height: 35
         anchors.centerIn: parent
         onClicked: {
             selectedDuration = "NORMAL"
             toastSeconds = 30
         }
+        contentItem: Text {
+            text: "30 SECONDS"
+            color: "white"
+            font.pixelSize: 12
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+        }
+        background: Rectangle {
+            color: buttonNormal.pressed ? "#44ffffff" : "transparent"
+            border.color: "white"
+            border.width: 2
+            radius: 8
+        }
     }
 
     Button {
         id: buttonToasty
-        width: 75
-        height: 25
-        text: qsTr("45 SECONDS")
+        width: 100
+        height: 35
         anchors.verticalCenter: buttonNormal.verticalCenter
         anchors.left: buttonNormal.right
         anchors.leftMargin: 20
@@ -76,18 +103,44 @@ Rectangle {
             selectedDuration = "TOASTY"
             toastSeconds = 45
         }
+        contentItem: Text {
+            text: "45 SECONDS"
+            color: "white"
+            font.pixelSize: 12
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+        }
+        background: Rectangle {
+            color: buttonToasty.pressed ? "#44ffffff" : "transparent"
+            border.color: "white"
+            border.width: 2
+            radius: 8
+        }
     }
 
     Button {
         id: buttonNoToast
         width: 150
         height: 50
-        text: qsTr("NO TOAST")
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 100
         onClicked: {
             stackView.push("Spread.qml")
+        }
+        contentItem: Text {
+            text: "NO TOAST"
+            color: "white"
+            font.pixelSize: 14
+            font.bold: true
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+        }
+        background: Rectangle {
+            color: buttonNoToast.pressed ? "#44ffffff" : "transparent"
+            border.color: "white"
+            border.width: 2
+            radius: 10
         }
     }
 
@@ -95,7 +148,6 @@ Rectangle {
         id: buttonNext
         width: 150
         height: 50
-        text: qsTr("Start Toasting")
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 40
@@ -106,20 +158,50 @@ Rectangle {
                 stackView: stackView
             })
         }
+        contentItem: Text {
+            text: "Start Toasting"
+            color: buttonNext.enabled ? "white" : "#88ffffff"
+            font.pixelSize: 14
+            font.bold: true
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+        }
+        background: Rectangle {
+            color: buttonNext.pressed ? "#44ffffff" : "transparent"
+            border.color: buttonNext.enabled ? "white" : "#88ffffff"
+            border.width: 2
+            radius: 10
+        }
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 =======
 >>>>>>> cac1ecd4c457752d6ce67a4969f7c5addd66c363
+=======
+
+>>>>>>> 55d86d7c30f2c365acebe62506f61698d36dc6df
     Button {
         id: buttonBack
-        width: 60
+        width: 70
         height: 30
-        text: qsTr("< Back")
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.topMargin: 10
         anchors.leftMargin: 10
         onClicked: stackView.pop()
+        contentItem: Text {
+            text: "< Back"
+            color: "white"
+            font.pixelSize: 12
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+        }
+        background: Rectangle {
+            color: buttonBack.pressed ? "#44ffffff" : "transparent"
+            border.color: "white"
+            border.width: 1
+            radius: 6
+        }
     }
 }
