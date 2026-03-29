@@ -1,9 +1,5 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
-<<<<<<< HEAD
-
-=======
->>>>>>> cac1ecd4c457752d6ce67a4969f7c5addd66c363
 import QtQuick.Layouts
 
 Rectangle {
@@ -19,7 +15,7 @@ Rectangle {
     }
     Image {
         id: background
-        source: "https://i.imgur.com/nzIaNX4.png"
+        source: "images/Picnic.png"
         anchors.fill: parent
         fillMode: Image.PreserveAspectCrop
         opacity: 0.4
@@ -173,14 +169,6 @@ Rectangle {
             radius: 10
         }
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> cac1ecd4c457752d6ce67a4969f7c5addd66c363
-=======
-
->>>>>>> 55d86d7c30f2c365acebe62506f61698d36dc6df
     Button {
         id: buttonBack
         width: 70

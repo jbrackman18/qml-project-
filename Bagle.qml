@@ -7,7 +7,7 @@ Rectangle {
     color: "#272EF5"
     Image {
         id: background
-        source: "https://i.imgur.com/rZrEFba.jpeg"
+        source: "images/picnicbackground.png"
         anchors.fill: parent
         fillMode: Image.PreserveAspectCrop
     }
@@ -19,14 +19,14 @@ Rectangle {
 
         Repeater {
             model: [
-                { src: "https://collegestreetbagels.com/cdn/shop/files/plain-bagel.png?v=1751173948", screen: "ToastBagle.qml" },
-                { src: "https://www.newyorkerbagels.com/cdn/shop/articles/whole-wheat-everything-bagel_1024x1024.png?v=1511207168", screen: "ToastBagle.qml" },
-                { src: "https://turano.com/wp-content/uploads/2019/03/90093_Bagels_Cinnamon_Raisin_Bagels_TD_EDITED_v2_forceUpdate.png", screen: "ToastBagle.qml" }
+                { src: "images/plain-bagel.png", screen: "ToastBagle.qml" },
+                { src: "images/whole-wheat-everything-bagel.png", screen: "ToastBagle.qml" },
+                { src: "images/Bagels_Cinnamon_Raisin_Bagels.png", screen: "ToastBagle.qml" }
             ]
 
             Image {
                 id: bagel
-                source: modelData.src
+                source: Qt.resolvedUrl(modelData.src)
                 width: 100
                 height: 100
 
@@ -47,14 +47,7 @@ Rectangle {
             }
         }
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> cac1ecd4c457752d6ce67a4969f7c5addd66c363
-=======
-
->>>>>>> 55d86d7c30f2c365acebe62506f61698d36dc6df
     Button {
         id: buttonTopRight
         width: 100
@@ -83,12 +76,5 @@ Rectangle {
             radius: 6
         }
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
+}
 
-=======
->>>>>>> cac1ecd4c457752d6ce67a4969f7c5addd66c363
-}
-=======
-}
->>>>>>> 55d86d7c30f2c365acebe62506f61698d36dc6df

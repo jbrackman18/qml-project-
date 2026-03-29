@@ -26,6 +26,12 @@ qt_add_qml_module(appEagleHacks2026
         QML_FILES mscreen2.qml
         QML_FILES mscreen3.qml
         QML_FILES lockscreen.qml
+    RESOURCES images/picnicbackground.png
+    RESOURCES images/plain-bagel.png
+    RESOURCES images/Bagels_Cinnamon_Raisin_Bagels.png
+    RESOURCES images/whole-wheat-everything-bagel.png
+    RESOURCES images/Picnic.png
+
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
