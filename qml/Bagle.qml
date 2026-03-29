@@ -12,7 +12,7 @@ Rectangle {
     Image {
         id: backgroundImage
         anchors.fill: parent
-        source: "images/bagelback.png"
+        source: "qrc:/images/bagelback.png"
         fillMode: Image.Stretch
     }
 
@@ -39,7 +39,7 @@ Rectangle {
         Button {
             id: plain
             background: Image {
-                source: "images/plainBagel.png"
+                source: "qrc:/images/plainBagel.png"
                 fillMode: Image.PreserveAspectFit
             }
             width: parent.parent.width * .3
@@ -62,7 +62,7 @@ Rectangle {
         Button {
             id: everything
             background: Image {
-                source: "images/eBagel.png"
+                source: "qrc:/images/eBagel.png"
                 fillMode: Image.PreserveAspectFit
             }
             width: parent.parent.width * .3

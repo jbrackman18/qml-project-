@@ -48,7 +48,7 @@ Rectangle {
             id: spreadGif
             width: 350
             height: 350
-            source: "images/bagelSpread.gif"
+            source: "qrc:/images/bagelSpread.gif"
             anchors.horizontalCenter: parent.horizontalCenter
             fillMode: Image.PreserveAspectCrop
             playing: true

@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/">
+        <!-- QML files -->
+        <file>qml/Main.qml</file>
+        <file>qml/Bagle.qml</file>
+        <file>qml/Spread.qml</file>
+        <file>qml/SpreadingScreen.qml</file>
+        <file>qml/ToastBagle.qml</file>
+        <file>qml/ToastingScreen.qml</file>
+        <file>qml/DoneScreen.qml</file>
+        <file>qml/maintainanceScreen.qml</file>
+        <file>qml/mscreen1.qml</file>
+        <file>qml/mscreen2.qml</file>
+        <file>qml/mscreen3.qml</file>
+        <file>qml/testSensor.qml</file>
+
+        <!-- Images -->
+        <file>images/plainBagel.png</file>
+        <file>images/eBagel.png</file>
+        <file>images/bagelback.png</file>
+        <file>images/bagelSpread.gif</file>
+    </qresource>
+</RCC>

@@ -4,33 +4,37 @@ project(EagleHacks2026 VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 REQUIRED COMPONENTS Quick)
+find_package(Qt6 REQUIRED COMPONENTS Quick SerialPort)
 
 qt_standard_project_setup(REQUIRES 6.10)
 
+set(CMAKE_AUTORCC ON)
+
 qt_add_executable(appEagleHacks2026
     main.cpp
+    sht45sensor.cpp
+    qml.qrc
 )
 
 qt_add_qml_module(appEagleHacks2026
     URI EagleHacks2026
     QML_FILES
-        Main.qml
-        QML_FILES Bagle.qml
-        QML_FILES Spread.qml
-        QML_FILES SpreadingScreen.qml
-        QML_FILES ToastBagle.qml
-        QML_FILES ToastingScreen.qml
-        QML_FILES DoneScreen.qml
-        QML_FILES maintainanceScreen.qml
-        QML_FILES mscreen1.qml
-        QML_FILES mscreen2.qml
-        QML_FILES mscreen3.qml
-
-        RESOURCES images/plainBagel.png
-        RESOURCES images/eBagel.png
-        RESOURCES images/bagelback.png
-        RESOURCES images/bagelSpread.gif
+        qml/Main.qml
+        qml/Bagle.qml
+        qml/Spread.qml
+        qml/SpreadingScreen.qml
+        qml/ToastBagle.qml
+        qml/ToastingScreen.qml
+        qml/DoneScreen.qml
+        qml/maintainanceScreen.qml
+        qml/mscreen1.qml
+        qml/mscreen2.qml
+        qml/mscreen3.qml
+    RESOURCES
+        images/plainBagel.png
+        images/eBagel.png
+        images/bagelback.png
+        images/bagelSpread.gif
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
@@ -45,7 +49,7 @@ set_target_properties(appEagleHacks2026 PROPERTIES
 )
 
 target_link_libraries(appEagleHacks2026
-    PRIVATE Qt6::Quick
+    PRIVATE Qt6::Quick Qt6::SerialPort
 )
 
 install(TARGETS appEagleHacks2026
