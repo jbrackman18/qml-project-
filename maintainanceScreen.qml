@@ -32,7 +32,7 @@ Rectangle {
         id: buttonMaintenance2
         width: 75
         height: 25
-        text: qsTr("Settings 2")
+        text: qsTr("Humidity")
         anchors.centerIn: parent
         onClicked:{
             myStackView.push("mscreen2.qml")
@@ -42,7 +42,7 @@ Rectangle {
         id: buttonMaintenance3
         width: 75
         height: 25
-        text: qsTr("Settings 3")
+        text: qsTr("Update")
         anchors.verticalCenter: buttonMaintenance2.verticalCenter
         anchors.left: buttonMaintenance2.right
         anchors.leftMargin: 20
