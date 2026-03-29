@@ -36,36 +36,49 @@ Rectangle {
         anchors.top: parent.top
         anchors.topMargin: 80
     }
+    Row {
+            anchors.centerIn: parent
+            anchors.verticalCenterOffset: 50
+            spacing: 40
+        Button {
+            id: buttonSpread1
+            width: parent.parent.width * .2
+            height: parent.parent.height * .2
+            background: Image {
+                source: "images/butter.png"
+                fillMode: Image.PreserveAspectFit
+            }
+            anchors.verticalCenter: buttonSpread2.verticalCenter
+            anchors.right: buttonSpread2.left
+            anchors.rightMargin: 20
+            onClicked: selectedSpread = "Butter"
+        }
 
-    Button {
-        id: buttonSpread1
-        width: 75
-        height: 25
-        text: qsTr("Butter")
-        anchors.verticalCenter: buttonSpread2.verticalCenter
-        anchors.right: buttonSpread2.left
-        anchors.rightMargin: 20
-        onClicked: selectedSpread = "Butter"
-    }
+        Button {
+            id: buttonSpread2
+            width: parent.parent.width * .2
+            height: parent.parent.height * .2
+            background: Image {
+                source: "images/cc.png"
+                fillMode: Image.PreserveAspectFit
+            }
+            anchors.centerIn: parent
+            onClicked: selectedSpread = "Cream Cheese"
+        }
 
-    Button {
-        id: buttonSpread2
-        width: 75
-        height: 25
-        text: qsTr("Cream Cheese")
-        anchors.centerIn: parent
-        onClicked: selectedSpread = "Cream Cheese"
-    }
-
-    Button {
-        id: buttonSpread3
-        width: 75
-        height: 25
-        text: qsTr("Jam")
-        anchors.verticalCenter: buttonSpread2.verticalCenter
-        anchors.left: buttonSpread2.right
-        anchors.leftMargin: 20
-        onClicked: selectedSpread = "Jam"
+        Button {
+            id: buttonSpread3
+            width: parent.parent.width * .2
+            height: parent.parent.height * .2
+            background: Image {
+                source: "images/jam.png"
+                fillMode: Image.PreserveAspectFit
+            }
+            anchors.verticalCenter: buttonSpread2.verticalCenter
+            anchors.left: buttonSpread2.right
+            anchors.leftMargin: 20
+            onClicked: selectedSpread = "Jam"
+        }
     }
 
     RoundButton {
